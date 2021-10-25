@@ -1,3 +1,5 @@
+
+=======
 var target = document.getElementById('target');
 var tree = document.getElementById('tree');
 var numberClick = parseInt(target.textContent);
@@ -74,6 +76,7 @@ if (numberClick >= 1000) {
 
 // -------------------------BONUS------------------------------------------
 // boost le score par 200 pour cent 
+
 
 
 
