@@ -49,7 +49,7 @@ if (numberClick >= 1000) {
   });
 } else {
   multiplicateur.addEventListener("click", () => {
-    multiplicateur.setAttribute("disabled");
+    multiplicateur.disabled = true;
   });
 }
 
