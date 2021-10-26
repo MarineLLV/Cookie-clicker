@@ -1,56 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
-*{
-  
+* {
   margin: 0px;
+  font-family: 'Indie Flower', cursive;
 }
 
- body{
-  background-image: url(https://images.unsplash.com/photo-1519331379826-f10be5486c6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+body {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+button > img {
+  width: 100%;
+  height: auto;
+}
+
+#forest {
+  background-image: url(./Assets/foret-soleil.jpg);
   background-repeat: no-repeat;
-  background-size: 100% 70%;
-  
-  
-} 
+}
 
-
-
-#treeSection {
- 
-    padding: 2vh 2vw;
-    padding-top: 20px;
-    margin-left :25%;
-    width: 50%;
-    height: auto;
-  
-    
-    display: block;
-    justify-content: center ; 
-    flex-direction: column;
-    align-items: center;
-
- 
+#leafs {
+  /*padding: 2vh 2vw;
+  padding-top: 20px;
+  margin-left: 25%;*/
+  margin: 0;
+  width: 50%;
+  height: auto;
+  display: block;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 500;
 }
 
 #treeActions {
   padding-top: 20px;
-  background-color: rgb(216, 162, 91);
+  background-image: url(./Assets/ecorce.jpg);
 }
 
-
-
-#tree{
-  background-color: transparent; 
+#tree {
+  background-color: transparent;
   background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-  
-  
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
 }
 
-#target{
-  
+#target {
   padding: 2vh;
   color: black;
   text-align: center;
@@ -58,29 +61,13 @@
   font-size: 25px;
   border-radius: 15px;
   background-color: rgba(222, 184, 135, 0.6);
-  margin-left: 23%;
 }
 
-
-
-#tree:hover{
+#tree:hover {
   transform: scale(1.02);
 }
 
-#x:active{
-  
-position: absolute;
- width: 25px;
- height: 25px;
- color: white;
-
-  animation: GoUp 2s forwards linear ;
-}
-
 #tree:active {
- 
- 
- 
   transform: scale(0.98);
 }
 @keyframes GoUp {
@@ -93,194 +80,416 @@ position: absolute;
   }
 }
 
-
 /* ----------------- boutons actions ------------------ */
 
-.actions{
+.actions {
   display: flex;
   margin: auto;
   margin-bottom: 20px;
-  height: 15%;
+  /* height: 15%; */
   width: 70%;
 }
 
-.button{
+.button {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: burlywood;
+  background-color: rgba(222, 184, 135, 0.6);
   border: none;
+  border-radius: 10px;
+  z-index: 100;
 }
 
-.buttonImage{
+.buttonImage {
+  padding-left: 5px;
   width: 20%;
 }
 
-.fas fa-faucet{
-  width: 100%;
-  height: 300%;
+.buttonImage i {
+  font-size: 3em;
 }
 
-.buttonTxt{
+#multiplier {
+  color: green;
+}
+
+#tap {
+  color: lightblue;
+}
+
+#bee {
+  color: rgb(248, 244, 0);
+}
+
+.buttonTxt {
   width: 80%;
   text-align: justify;
-  padding: 5px;
+  font-weight: 600;
+  padding: 5%;
+  padding-left: 7.5%;
 }
 
-.number{
-  width: 20%;
+.buttonTxt h2 {
+  font-weight: 800;
 }
 
-.button:hover{
+.button:hover {
   border: 1px solid burlywood;
   background-color: brown;
 }
-/* ---------------------------------------------------- */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*                    */
-.leaf{
-    position:absolute ;
-    width:100%;
-    height:80%;
-    top:0;
-    left:0;
-    z-index: -1;
+/* FEUILLE  */
+
+.leaf {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  top: 0;
+  left: 0;
+  z-index:-1;
 }
-.leaf div{
-position:absolute ;
-display:block ;
+.leaf div {
+  position: absolute;
+  display: block;
+  z-index: 100;
 }
-.leaf div:nth-child(1){
-    left:20%; 
-    animation:fall 15s linear infinite ;
-    animation-delay:-2s;
-
+.leaf div:nth-child(1) {
+  left: 20%;
+  animation: fall 15s linear infinite;
+  animation-delay: -2s;
 }
-.leaf div:nth-child(2){
-    left:70%; 
-    animation:fall 15s linear infinite ;
-    animation-delay:-4s;
+.leaf div:nth-child(2) {
+  left: 70%;
+  animation: fall 15s linear infinite;
+  animation-delay: -4s;
 }
-.leaf div:nth-child(3){
-    left:10%; 
-    animation:fall 20s linear infinite ;
-    animation-delay:-7s;
-    
+.leaf div:nth-child(3) {
+  left: 10%;
+  animation: fall 20s linear infinite;
+  animation-delay: -7s;
 }
-.leaf div:nth-child(4){
-    left:50%; 
-   animation:fall 18s linear infinite ; 
-   animation-delay:-5s;
+.leaf div:nth-child(4) {
+  left: 50%;
+  animation: fall 18s linear infinite;
+  animation-delay: -5s;
 }
-.leaf div:nth-child(5){
-    left:85%; 
-    animation:fall 14s linear infinite ;
-    animation-delay:-5s;
+.leaf div:nth-child(5) {
+  left: 85%;
+  animation: fall 14s linear infinite;
+  animation-delay: -5s;
 }
-.leaf div:nth-child(6){
-    left:15%; 
-    animation:fall 16s linear infinite ;
-    animation-delay:-10s;
+.leaf div:nth-child(6) {
+  left: 15%;
+  animation: fall 16s linear infinite;
+  animation-delay: -10s;
 }
-.leaf div:nth-child(7){
-    left:90%; 
-    animation:fall 15s linear infinite ;
-    animation-delay:-4s;
+.leaf div:nth-child(7) {
+  left: 90%;
+  animation: fall 15s linear infinite;
+  animation-delay: -4s;
 }
 
-@keyframes fall{
-    0%{
-        opacity:1;
-        top:-10%;
-        transform:translateX (20px) rotate(0deg);
-    }
-    20%{
-        opacity:0.8;
-        transform:translateX (-20px) rotate(45deg);
-    }
-    40%{
-
-        transform:translateX (-20px) rotate(90deg);
-    }
-    60%{
-        
-       transform:translateX (-20px) rotate(135deg); 
-    }
-    80%{
-    
-        transform:translateX (-20px) rotate(180deg);
-    }
-    100%{
-        
-        top:110%;
-        transform:translateX (-20px) rotate(225deg);
-    }
-    }
-.leaf1{
-    transform: rotateX(180deg);
+@keyframes fall {
+  0% {
+    opacity: 1;
+    top: -10%;
+    transform: translateX (20px) rotate(0deg);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateX (-20px) rotate(45deg);
+  }
+  40% {
+    transform: translateX (-20px) rotate(90deg);
+  }
+  60% {
+    transform: translateX (-20px) rotate(135deg);
+  }
+  80% {
+    transform: translateX (-20px) rotate(180deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX (-20px) rotate(225deg);
+  }
+}
+.leaf1 {
+  transform: rotateX(180deg);
 }
 
+/* --------------------------------------------------MEDIA QUERIES ---------------------------------------- */
+/*----------------------- PHONE ------------******/
+@media only screen and (max-width: 576px) {
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  #target {
+    margin-top: 2vh;
+  }
+  #tree {
+    margin-top: 5vh;
+  }
+  #tree img {
+    width: 80%;
+    height: auto;
+  }
+  #forest {
+    background-image: url(./Assets/foret-soleil.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    height: 65vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  #treeActions {
+    padding-top: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    min-height: 35vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .actions {
+    width: 100%;
+    padding: 0px;
+    margin: 5px;
+  }
+
+  .buttonTxt {
+    text-align: center;
+    padding: 0px;
+  }
+
+  .buttonTxt > div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .flexColumn {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button {
+    padding-top: 0.8vh;
+    padding-bottom: 0.8vh;
+  }
+
+  h2 {
+    font-size: 0.8rem;
+    align-self: center;
+  }
+
+  p{
+    font-size: 0.7rem
+  }
+
+  .leaf {
+    display: none;
+  }
+
+  #leafs {
+    display: none;
+  }
+}
+/*----------------------- PHONE ---END---------******/
+/*----------------------- TABLET ------------******/
+@media (min-width: 768px) {
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    background-image: linear-gradient(#f4e1c9, #f6e1c7);
+  }
+
+  main {
+    padding-top: 3%;
+    height: 50%;
+  }
+  
+  #target {
+    width: 40%;
+    margin: auto;
+    margin-bottom: 1%;
+  }
+
+  #tree img {
+    width: 80%;
+    height: auto;
+  }
+
+  #treeActions {
+    height: 50%;
+    width: 100%;
+    padding-bottom: 2.5%;
+  }
+
+  .actions {
+    width: 85%;
+    height : 10%;
+    margin-bottom: 10px;
+  }
+
+  .actions:last-child{
+    margin-bottom: 0px ;
+  }
+
+  .buttonTxt{
+    padding: 2%;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-weight:bold;
+    font-size: 0.9rem;
+  }
+
+}
+/*----------------------- LARGE SCREEN -------------------------******/
+
+
+@media (min-width: 992px) {
+
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    background-image: linear-gradient(#f4e1c9, #f6e1c7);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 100%;
+  }
+
+  main{
+    width: 55%;
+    height: 75%;
+  }
+
+  #target {
+    width: 40%;
+    margin: auto;
+    /* margin-top: 5%; */
+    margin-bottom: 2%;
+  }
+
+  #treeActions {
+    width: 30%;
+    height: 50%;
+    align-self: center;
+    padding-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  .actions {
+    width: 85%;
+  }
+
+  .actions:last-child{
+    margin-bottom: 0px ;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-weight:bold;
+    font-size: 0.95rem;
+  }
+}
+
+
+
+
+/*--------------------------------------------- EXTRA LARGE SCREEN -----------------------------******/
+
+@media (min-width: 1200px) {
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    background-image: linear-gradient(#f4e1c9, #f6e1c7);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 100%;
+  }
+
+  main{
+    width: 50%;
+    height: 75%;
+  }
+
+  #target {
+    width: 40%;
+    margin: auto;
+    /* margin-top: 5%; */
+    margin-bottom: 2%;
+  }
+
+  #treeActions {
+    width: 30%;
+    height: 50%;
+    align-self: center;
+    padding-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  .actions {
+    width: 85%;
+  }
+
+  .actions:last-child{
+    margin-bottom: 0px ;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-weight:bold;
+    font-size: 1rem;
+  }
+}
