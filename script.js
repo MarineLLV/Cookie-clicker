@@ -166,3 +166,4 @@ if (numberMulti = 30 ){ prixMulti = numberMulti*numberClick ;dissappear(); }
 
 */ 
 
+
