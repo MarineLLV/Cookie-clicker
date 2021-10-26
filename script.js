@@ -4,23 +4,43 @@ var numberClick = parseInt(target.textContent);
 var test = false;
 var multiplicateur = document.getElementById("multiplicateur");
 
+function dissappear(){
+  multiplicateur.disabled = true;
+    }
+
+function appear(){
+  multiplicateur.disabled = false;
+}
+
+
 //When you click the button, increase the variable storing the score by 1, then display the current score inside the label.
 //affichage de 0 au lieu de null
 
 
-numberClick = localStorage.getItem('numberClickCookiess');
-target.innerHTML = `plant ${localStorage.getItem('numberClickCookiess')} trees`;
 
 
+
+numberClick = localStorage.getItem('numberClickCookies');
+target.innerHTML = `plant ${localStorage.getItem('numberClickCookies')} trees`;
+
+if (numberClick === null) {
+  target.innerHTML = `plant 0 tree`;
+} 
+
+dissappear();
 
 //---------------------- COMPTEUR DE CLIQUE---------------------------------
 tree.addEventListener('click', () => {
   numberClick++;
-  localStorage.setItem('numberClickCookiess', numberClick);
-  target.innerHTML = `plant ${localStorage.getItem('numberClickCookiess')} trees`;
+  localStorage.setItem('numberClickCookies', numberClick);
+  target.innerHTML = `plant ${localStorage.getItem('numberClickCookies')} trees`;
+ 
+  if(numberClick >= 1000){
+    appear();
+  }
 
-
-
+   
+  
 });
 
 //-------------------------- MULTIPLICATEUR------------------------------------------------------------------------------
@@ -32,108 +52,49 @@ tree.addEventListener('click', () => {
 
 
 
-if (numberClick >= 1000) {
-
-
   multiplicateur.addEventListener('click', () => {
 
-    numberClick = parseInt(numberClick) * 2;
-    target.innerHTML =`plant ${numberClick} trees`;
+
+if (test == false) {
+  numberClick = parseInt(numberClick) - 10;
+  test = true;
+
+ // localStorage.setItem('multipliAutorisation',test);
+
+}
+    numberClick =parseInt(numberClick) * 2 ;
+    target.innerHTML = `plant ${numberClick} trees`;
     // actualisé et enregistré le numberClick dans le cookie
-    localStorage.setItem('numberClickCookiess', numberClick);
-    target.innerHTML = `plant ${localStorage.getItem('numberClickCookiess')} trees`;
-
-    if (test == false) {
-      numberClick = parseInt(numberClick) - 1000;
-      test = true;
-      
-      //localStorage.setItem('multipliAutorisation',test);
-
-    }
+    localStorage.setItem('numberClickCookies', numberClick);
+    target.innerHTML = `plant ${localStorage.getItem('numberClickCookies')} trees`;
+    
+    
   });
 
 
-} else {
-  multiplicateur.addEventListener('click',()=>{
-    multiplicateur.setAttribute('disabled');
-});
 
+
+
+
+
+
+//------------------------------------ AUTO CLIQUEUR------------------------------------------------------------ 
+  // clique automatique tous les  secondes  de 10 cliques
+   //if (numberClick > 5000) {setInterval(function () {document.getElementById("wateringCan").click() ;},1) ;3000} ;
+   function clikk (){
+     document.getElementById("wateringCan").click();
+   }
+   if (numberClick > 5000){
+   
+      const cliqueAutomatique = setInterval(clikk, 5000 );
+      //numberClick = numberClick+cliqueAutomatique;
   }
-
-
-
-
-
-
-
-  //------------------------------------ AUTO CLIQUEUR------------------------------------------------------------ 
-  // clique automatique tous les x secondes 
 
 
 
 
 // -------------------------BONUS------------------------------------------
 // boost le score par 200 pour cent 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
