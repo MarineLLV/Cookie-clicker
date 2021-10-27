@@ -184,6 +184,8 @@ var setIntervalCheck = setInterval(() => {
   if (btnAutoOff == 1) {
     dissappear(autoClickbtn);
   }
+  // enregistre toutes les modif par rapport a auto click et autre sur le cookie numberClick!!!
+  localStorage.setItem("numberClickCookies", numberClick);
 }, 200);
 
 // ----------------------------------------------------------------------------
