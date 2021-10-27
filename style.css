@@ -129,14 +129,29 @@ button > img {
   padding-left: 7.5%;
 }
 
-.buttonTxt h2 {
-  font-weight: 800;
-}
-
 .button:hover {
   border: 1px solid burlywood;
   background-color: brown;
 }
+
+.title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.formatSpan{
+  display: block;
+  font-size: 1rem;
+}
+
+.hide{
+  display: block;
+  font-size: 1rem;
+}
+
+
+
 
 /* FEUILLE  */
 
@@ -275,7 +290,7 @@ button > img {
     padding: 0px;
   }
 
-  .buttonTxt > div {
+  .buttonTxt:first-child{
     display: flex;
     justify-content: space-evenly;
   }
@@ -294,12 +309,12 @@ button > img {
     padding-bottom: 0.8vh;
   }
 
-  h2 {
+  .title {
     font-size: 0.8rem;
     align-self: center;
   }
 
-  p{
+  .formatSpan{
     font-size: 0.7rem
   }
 
@@ -359,13 +374,13 @@ button > img {
     padding: 2%;
   }
 
-  h2 {
+  .title {
     font-weight: bold;
     font-size: 1.1rem;
     text-transform: uppercase;
   }
 
-  p {
+  .formatSpan, .hide {
     font-weight:bold;
     font-size: 0.9rem;
   }
@@ -420,13 +435,13 @@ button > img {
     margin-bottom: 0px ;
   }
 
-  h2 {
+  .title {
     font-weight: bold;
     font-size: 1.2rem;
     text-transform: uppercase;
   }
 
-  p {
+  .formatSpan, .title {
     font-weight:bold;
     font-size: 0.95rem;
   }
@@ -482,13 +497,13 @@ button > img {
     margin-bottom: 0px ;
   }
 
-  h2 {
+  .title {
     font-weight: bold;
     font-size: 1.3rem;
     text-transform: uppercase;
   }
 
-  p {
+  .formatSpan, .hide {
     font-weight:bold;
     font-size: 1rem;
   }
