@@ -10,8 +10,6 @@ body {
   margin-right: auto;
 }
 
-
-
 button > img {
   width: 100%;
   height: auto;
@@ -80,7 +78,29 @@ button > img {
   }
 }
 
+.signature{
+  text-align: center;
+  font-weight: 600;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: #8AC2B6;
+}
+
+a:hover{
+  color:brown;
+}
+
 /* ----------------- boutons actions ------------------ */
+
+h2{
+  text-align: center;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 2%;
+}
 
 .actions {
   display: flex;
@@ -129,14 +149,29 @@ button > img {
   padding-left: 7.5%;
 }
 
-.buttonTxt h2 {
-  font-weight: 800;
-}
-
 .button:hover {
   border: 1px solid burlywood;
   background-color: brown;
 }
+
+.title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.formatSpan{
+  display: block;
+  font-size: 1rem;
+}
+
+.hide{
+  display: block;
+  font-size: 1rem;
+}
+
+
+
 
 /* FEUILLE  */
 
@@ -226,7 +261,6 @@ button > img {
   }
 
   body {
-    background-color: green;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -243,7 +277,7 @@ button > img {
     height: auto;
   }
   #forest {
-    background-image: url(./Assets/foret-soleil.jpg);
+    background-image: url(./Assets/foret-soleil-mobile.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: auto;
@@ -275,7 +309,7 @@ button > img {
     padding: 0px;
   }
 
-  .buttonTxt > div {
+  .buttonTxt > div{
     display: flex;
     justify-content: space-evenly;
   }
@@ -294,12 +328,12 @@ button > img {
     padding-bottom: 0.8vh;
   }
 
-  h2 {
+  .title {
     font-size: 0.8rem;
     align-self: center;
   }
 
-  p{
+  .formatSpan{
     font-size: 0.7rem
   }
 
@@ -309,6 +343,15 @@ button > img {
 
   #leafs {
     display: none;
+  }
+
+  footer{
+    background-color: #f6e1c7;
+    padding-top: 1%;
+  }
+
+  .signature{
+    font-size: 0.6rem;
   }
 }
 /*----------------------- PHONE ---END---------******/
@@ -339,6 +382,10 @@ button > img {
     height: auto;
   }
 
+  #forest {
+    background-image: url(./Assets/foret-soleil-mobile.jpg);
+  }
+
   #treeActions {
     height: 50%;
     width: 100%;
@@ -359,15 +406,24 @@ button > img {
     padding: 2%;
   }
 
-  h2 {
+  .title {
     font-weight: bold;
     font-size: 1.1rem;
     text-transform: uppercase;
   }
 
-  p {
+  .formatSpan, .hide {
     font-weight:bold;
     font-size: 0.9rem;
+  }
+
+  footer{
+    background-color: #f6e1c7;
+    padding-top: 1%;
+  }
+
+  .signature{
+    font-size: 0.7rem;
   }
 
 }
@@ -381,13 +437,19 @@ button > img {
     padding: 0px;
   }
 
+  .body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   body {
     background-image: linear-gradient(#f4e1c9, #f6e1c7);
     padding-top: 50px;
     padding-bottom: 50px;
-    display: flex;
+    /* display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center; */
 
     height: 100%;
   }
@@ -420,15 +482,23 @@ button > img {
     margin-bottom: 0px ;
   }
 
-  h2 {
+  .title {
     font-weight: bold;
     font-size: 1.2rem;
     text-transform: uppercase;
   }
 
-  p {
+  .formatSpan, .title {
     font-weight:bold;
     font-size: 0.95rem;
+  }
+
+  footer{
+    padding-top: 3%;
+  }
+
+  .signature{
+    font-size: 0.7rem;
   }
 }
 
@@ -442,14 +512,17 @@ button > img {
     margin: 0px;
     padding: 0px;
   }
+  .body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 
   body {
     background-image: linear-gradient(#f4e1c9, #f6e1c7);
     padding-top: 50px;
     padding-bottom: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    
 
     height: 100%;
   }
@@ -482,14 +555,22 @@ button > img {
     margin-bottom: 0px ;
   }
 
-  h2 {
+  .title {
     font-weight: bold;
     font-size: 1.3rem;
     text-transform: uppercase;
   }
 
-  p {
+  .formatSpan, .hide {
     font-weight:bold;
     font-size: 1rem;
+  }
+
+  footer{
+    padding-top: 3%;
+  }
+
+  .signature{
+    font-size: 0.8rem;
   }
 }
