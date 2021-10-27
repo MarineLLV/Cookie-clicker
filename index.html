@@ -46,13 +46,13 @@
         <div class="buttonImage">
           <i class="fas fa-times" id="multiplier"></i>
         </div>
-        <div id="multiplicateur" class="buttonTxt">
+        <div class="buttonTxt">
           <div>
-            <h2>Multiply x 5 </h2>
+            <h2>Valeur </br>du</br> multiplicateur <span id="valMulti"> <span></h2>
             <p class="hide">Use this element to multiply you clicking score by TwO !</p>
             <div class="flexColumn">
-              <p id="prix">Price: <span>1</span></p>
-              <p>Multiply owned: <span id="multiplyOwned">0</span></p>
+              <p>Price: <span id="prix"></span></p>
+              <p>Nombre utilisation du multiplicateur: <span id="multiplyOwned">0</span></p>
             </div>
           </div>
         </div>
@@ -78,8 +78,10 @@
     <!-- *************************************** WATERING-BUTTON *********************************** -->
 
     <div class="actions">
-      <button type="button" class="button">
-        <span class="buttonImage">
+
+      <button type="button" class="button" id="autoclickbtn">
+        <div class="buttonImage">
+
           <i class="fas fa-faucet" id="tap"></i>
         </span>
         <span id="wateringCan" class="buttonTxt">
