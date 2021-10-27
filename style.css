@@ -80,7 +80,17 @@ button > img {
 
 .signature{
   text-align: center;
-  font-weight: 400;
+  font-weight: 600;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: #8AC2B6;
+}
+
+a:hover{
+  color:brown;
 }
 
 /* ----------------- boutons actions ------------------ */
@@ -334,6 +344,15 @@ h2{
   #leafs {
     display: none;
   }
+
+  footer{
+    background-color: #f6e1c7;
+    padding-top: 1%;
+  }
+
+  .signature{
+    font-size: 0.6rem;
+  }
 }
 /*----------------------- PHONE ---END---------******/
 /*----------------------- TABLET ------------******/
@@ -343,9 +362,9 @@ h2{
     padding: 0px;
   }
 
-  body {
+  /* body {
     background-image: linear-gradient(#f4e1c9, #f6e1c7);
-  }
+  } */
 
   main {
     padding-top: 3%;
@@ -398,6 +417,15 @@ h2{
     font-size: 0.9rem;
   }
 
+  footer{
+    background-color: #f6e1c7;
+    padding-top: 1%;
+  }
+
+  .signature{
+    font-size: 0.7rem;
+  }
+
 }
 /*----------------------- LARGE SCREEN -------------------------******/
 
@@ -409,13 +437,19 @@ h2{
     padding: 0px;
   }
 
+  .body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   body {
     background-image: linear-gradient(#f4e1c9, #f6e1c7);
     padding-top: 50px;
     padding-bottom: 50px;
-    display: flex;
+    /* display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center; */
 
     height: 100%;
   }
@@ -458,6 +492,14 @@ h2{
     font-weight:bold;
     font-size: 0.95rem;
   }
+
+  footer{
+    padding-top: 3%;
+  }
+
+  .signature{
+    font-size: 0.7rem;
+  }
 }
 
 
@@ -470,14 +512,17 @@ h2{
     margin: 0px;
     padding: 0px;
   }
+  .body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 
   body {
     background-image: linear-gradient(#f4e1c9, #f6e1c7);
     padding-top: 50px;
     padding-bottom: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    
 
     height: 100%;
   }
@@ -521,7 +566,11 @@ h2{
     font-size: 1rem;
   }
 
+  footer{
+    padding-top: 3%;
+  }
+
   .signature{
-    display: block;
+    font-size: 0.8rem;
   }
 }
