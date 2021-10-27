@@ -16,9 +16,11 @@ var wateringCansOwned = document.getElementById("wateringCansOwned");
 // valeur de la multiplication
 var click =
   localStorage.getItem("clicks") == null ? 1 : localStorage.getItem("clicks");
+// val du multiplicateur
+var valMultipplcateur = document.getElementById("valMulti");
+var autoClickbtn = document.getElementById("autoclickbtn");
 
 // ----------------------------Fonction -------------------------------------
-dissappear(multiplicateur);
 
 function dissappear(element) {
   element.disabled = true;
@@ -28,16 +30,8 @@ function appear(element) {
   element.disabled = false;
 }
 
-// --------------------------- SetInterval check disabled----------------------
-
-// le setinterval vérifie toutes les 100 mili la condition numerClick par rapport aux paliers et autorise affichage de multiplicateur
-var setIntervalCheck = setInterval(() => {
-  if (numberClick >= palier) {
-    appear(multiplicateur);
-  } else {
-    dissappear(multiplicateur);
-  }
-}, 100);
+dissappear(multiplicateur);
+dissappear(autoClickbtn);
 
 // ----------------------------------------------------------------------------
 //When you click the button, increase the variable storing the score by 1, then display the current score inside the label.
@@ -70,13 +64,22 @@ var numberMulti =
     ? 0
     : localStorage.getItem("numberClickMulti");
 multiplyOwned.innerText = numberMulti;
+// affichage du prix de la mutliplication
+affichprixmulti.innerText = prixMulti;
+//affichage  de la valeur de multiplication ds le bouton
+valMultipplcateur.innerText = localStorage.getItem("clicks");
 
 multiplicateur.addEventListener("click", () => {
   palier = palier * 2;
   prixMulti = prixMulti * 2;
-  localStorage.setItem("palierCookie", palier);
   localStorage.setItem("prixMultiCookie", prixMulti);
-  //affichprixmulti.innerText=palier; //afficher nouveau prix ds bouton
+  //afficher nouveau prix ds bouton
+  affichprixmulti.innerText = localStorage.setItem(
+    "prixMultiCookie",
+    prixMulti
+  );
+
+  localStorage.setItem("palierCookie", palier);
 
   multiplyOwned.innerText = ++numberMulti; // injection ds le html de la valeur de nombre de click sur multiplicateur
   localStorage.setItem("numberClickMulti", numberMulti); //// injection ds le cookie de la valeur de nombre de click sur multiplicateur
@@ -89,72 +92,101 @@ multiplicateur.addEventListener("click", () => {
 // clique automatique tous les  secondes  de 10 cliques
 
 // variable nbre de click de l'auto + si null =0 sinon est égal au cookie auto
+
 var numberClickAuto =
   localStorage.getItem("numberAuto") == null
     ? 0
     : localStorage.getItem("numberAuto");
 
+var palierAuto =
+  localStorage.getItem("palierAutoCookie") == null
+    ? 400
+    : localStorage.getItem("palierAutoCookie");
+var autoclick = 1;
 // écrit dans le html le resultat du nbre de click Auto
 wateringCansOwned.innerText = numberClickAuto;
 
-document.getElementById("wateringCan").addEventListener("click", () => {
+var btnAutoOff =
+  localStorage.getItem("btnAutoOffCookiee") == null
+    ? 0
+    : localStorage.getItem("btnAutoOffCookiee");
+
+function clikauto() {
+  numberClick = parseInt(numberClick) + parseInt(autoclick);
+  target.innerText = numberClick;
+}
+
+document.getElementById("autoclickbtn").addEventListener("click", () => {
   // implémente numberClickAuto à chaque click
   wateringCansOwned.innerText = ++numberClickAuto;
   // crée un cookie numberAuto par rapport aux nombres de click
   localStorage.setItem("numberAuto", numberClickAuto);
 
-  var time = 0;
+  localStorage.setItem("palierAutoCookie", palierAuto);
+
+  autoclick = 1;
 
   function clikauto() {
-    time++;
-    document.getElementById("wateringCan").click;
-    console.log("ça marche");
-    if (time > 10) {
-      clearInterval(setInterval1);
-    }
+    numberClick = parseInt(numberClick) + parseInt(autoclick);
+    target.innerText = numberClick;
   }
 
-  var setInterval1 = setInterval(clikauto, 500); // clique tte les 0.5 sec
+  var setInterval1 = setInterval(clikauto, 1000); // clique tte les 1 sec}
+  btnAutoOff = 1;
+  localStorage.setItem("btnAutoOffCookiee", btnAutoOff);
 });
-
-//------------------------------------ AUTO CLIQUEUR------------------------------------------------------------
-// clique automatique tous les x secondes
 
 // -------------------------BONUS------------------------------------------
-// boost le score par 200 pour cent
-// variable nbre de click du bonus + si null =0 sinon est égal au cookie bonus
-var numberClickBonus =
-  localStorage.getItem("numberBonus") == null
-    ? 0
-    : localStorage.getItem("numberBonus");
-// écrit dans le html le resultat du nbre de click bonus
-beesOwned.innerText = numberClickBonus;
-bees.addEventListener("click", () => {
-  // implémente numberClickBonus à chaque click
-  beesOwned.innerText = ++numberClickBonus;
-  // crée un cookie numberBonus par rapport aux nombres de click
-  localStorage.setItem("numberBonus", numberClickBonus);
-  // Condition pour acheter le bonus
-  /*if (numberClick > valeur à définir) {
-      fait apparaître le bouton
-      // Multiplier le nombre de clics par 200%
-      numberClick * 2
-      // Pendant une durée de 30s
-      setinterval
-      // Afficher le timer à l'écran
-      document.appendchild 
+var bonus =
+  localStorage.getItem("bonus") == null ? 1 : localStorage.getItem("bonus");
+
+var compteAReb = document.getElementById("compteAReb");
+
+var numbee = 0;
+var timeleft = 30; // bonus dure 30seco
+
+if (numberClick) {
+  appear(compteAReb); // on doit encore chjoisir condition pour avoir ce Bonus
+
+  bees.addEventListener("click", function () {
+    //  nombre de clique fois 2, 200%
+    var bonus = localStorage.getItem("clicks") * 2;
+
+    var downloadTimer = setInterval(function () {
+      timeleft--;
+
+      compteAReb.textContent = timeleft;
+      click = bonus;
+      target.innerText = numberClick;
+      if (timeleft <= 0) {
+        click = localStorage.getItem("clicks") / 2;
+        console.log(click);
+
+        clearInterval(downloadTimer);
+        timeleft = 30;
+      } // timer reviens a 30
+    }, 1000);
+  });
+}
+
+// --------------------------- SetInterval check disabled----------------------
+
+// le setinterval vérifie toutes les 100 mili la condition numerClick par rapport aux paliers et autorise affichage de multiplicateur
+var setIntervalCheck = setInterval(() => {
+  if (numberClick >= palier) {
+    appear(multiplicateur);
   } else {
-      disappear()
-  }*/
-});
+    dissappear(multiplicateur);
+  }
 
-// -----------------------------achat----------------------------------
+  if (numberClick >= palierAuto) {
+    appear(autoClickbtn);
+  }
 
-// Variables Prix a créer qui sera injecter ds le bouton
+  if (btnAutoOff == 1) {
+    dissappear(autoClickbtn);
+    setInterval1 = setInterval(clikauto, 1000);
+  }
+}, 1000);
 
-//le prix sera multiplier par numberMulti  : 1 *numberMulti/10 qd le bouton multiplication se disabled et injecter ds le bouton
-// si nbre multi = 30 alors multiprixprix = mutltiprix*nbredeclick et bien bouton disabled. qd nbre muilti est zero multiprix est egal a multiprix
-/*
-if (numberMulti = 30 ){ prixMulti = numberMulti*numberClick ;dissappear(); }
-
-*/
+// ----------------------------------------------------------------------------
