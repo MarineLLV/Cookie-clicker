@@ -10,8 +10,6 @@ body {
   margin-right: auto;
 }
 
-
-
 button > img {
   width: 100%;
   height: auto;
@@ -80,7 +78,19 @@ button > img {
   }
 }
 
+.signature{
+  text-align: center;
+  font-weight: 400;
+}
+
 /* ----------------- boutons actions ------------------ */
+
+h2{
+  text-align: center;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 2%;
+}
 
 .actions {
   display: flex;
@@ -509,5 +519,9 @@ button > img {
   .formatSpan, .hide {
     font-weight:bold;
     font-size: 1rem;
+  }
+
+  .signature{
+    display: block;
   }
 }
