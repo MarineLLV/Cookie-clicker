@@ -11,45 +11,60 @@ var multiplicateur = document.getElementById("multiplicateur");
 var bees = document.getElementById("bees");
 var multiplyOwned = document.getElementById("multiplyOwned");
 var beesOwned = document.getElementById("beesOwned");
-var prix = document.getElementById("prix");
+var affichprixmulti = document.getElementById("prix");
 var wateringCansOwned = document.getElementById("wateringCansOwned");
+// valeur de la multiplication
+var click =
+  localStorage.getItem("clicks") == null ? 1 : localStorage.getItem("clicks");
 
 // ----------------------------Fonction -------------------------------------
+dissappear(multiplicateur);
 
-function dissappear() {
-  multiplicateur.disabled = true;
+function dissappear(element) {
+  element.disabled = true;
 }
 
-function appear() {
-  multiplicateur.disabled = false;
+function appear(element) {
+  element.disabled = false;
 }
+
+// --------------------------- SetInterval check disabled----------------------
+
+// le setinterval vérifie toutes les 100 mili la condition numerClick par rapport aux paliers et autorise affichage de multiplicateur
+var setIntervalCheck = setInterval(() => {
+  if (numberClick >= palier) {
+    appear(multiplicateur);
+  } else {
+    dissappear(multiplicateur);
+  }
+}, 100);
 
 // ----------------------------------------------------------------------------
 //When you click the button, increase the variable storing the score by 1, then display the current score inside the label.
 //affichage de 0 au lieu de null
 
 target.innerText = numberClick;
-dissappear();
 
 //---------------------- COMPTEUR DE CLIQUE---------------------------------
 tree.addEventListener("click", () => {
-  target.innerText = ++numberClick;
+  numberClick = parseInt(numberClick) + parseInt(click);
+  target.innerText = numberClick;
   localStorage.setItem("numberClickCookies", numberClick);
-
-  if (numberClick >= 1000) {
-    appear();
-  } else {
-    dissappear();
-  }
+  localStorage.setItem("clicks", click);
 });
 
 //-------------------------- MULTIPLICATEUR------------------------------------------------------------------------------
 // Add another button which will act as a multiplier. When called this button will permanently multiply the number of points per click, by two for example.
 
-// multiplier le nombre de points par le nombre de clique
-
-//multiplier score par nbre de click, nous avonc choisi 2
-var prixMulti = 100;
+// condition pr que la valeur de prix multi et palier
+var prixMulti =
+  localStorage.getItem("prixMultiCookie") == null
+    ? 20
+    : localStorage.getItem("prixMultiCookie");
+var palier =
+  localStorage.getItem("palierCookie") == null
+    ? 100
+    : localStorage.getItem("palierCookie");
 var numberMulti =
   localStorage.getItem("numberClickMulti") == null
     ? 0
@@ -57,19 +72,16 @@ var numberMulti =
 multiplyOwned.innerText = numberMulti;
 
 multiplicateur.addEventListener("click", () => {
+  palier = palier * 2;
+  prixMulti = prixMulti * 2;
+  localStorage.setItem("palierCookie", palier);
+  localStorage.setItem("prixMultiCookie", prixMulti);
+  //affichprixmulti.innerText=palier; //afficher nouveau prix ds bouton
+
   multiplyOwned.innerText = ++numberMulti; // injection ds le html de la valeur de nombre de click sur multiplicateur
   localStorage.setItem("numberClickMulti", numberMulti); //// injection ds le cookie de la valeur de nombre de click sur multiplicateur
-  //console.log(numberMulti);
-  prixMulti = numberMulti * 2;
-  prix.innerText = prixMulti;
-
-  if (test == false) {
-    numberClick = parseInt(numberClick) - 100;
-    test = true;
-  }
-  // localStorage.setItem('multipliAutorisation',test);
-
-  numberClick = parseInt(numberClick) * 2;
+  click = localStorage.getItem("clicks") * 2;
+  numberClick = numberClick - prixMulti;
   target.innerText = numberClick;
 });
 
@@ -91,13 +103,13 @@ document.getElementById("wateringCan").addEventListener("click", () => {
   // crée un cookie numberAuto par rapport aux nombres de click
   localStorage.setItem("numberAuto", numberClickAuto);
 
-  var num = 0;
+  var time = 0;
 
   function clikauto() {
-    num++;
+    time++;
     document.getElementById("wateringCan").click;
     console.log("ça marche");
-    if (num > 10) {
+    if (time > 10) {
       clearInterval(setInterval1);
     }
   }
