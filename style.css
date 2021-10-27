@@ -258,7 +258,7 @@ button > img {
     height: auto;
   }
   #forest {
-    background-image: url(./Assets/foret-soleil.jpg);
+    background-image: url(./Assets/foret-soleil-mobile.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: auto;
@@ -290,7 +290,7 @@ button > img {
     padding: 0px;
   }
 
-  .buttonTxt:first-child{
+  .buttonTxt > div{
     display: flex;
     justify-content: space-evenly;
   }
@@ -352,6 +352,10 @@ button > img {
   #tree img {
     width: 80%;
     height: auto;
+  }
+
+  #forest {
+    background-image: url(./Assets/foret-soleil-mobile.jpg);
   }
 
   #treeActions {
