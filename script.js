@@ -48,7 +48,8 @@ tree.addEventListener("click", () => {
 });
 
 //-------------------------- MULTIPLICATEUR------------------------------------------------------------------------------
-// Add another button which will act as a multiplier. When called this button will permanently multiply the number of points per click, by two for example.
+// Add another button which will act as a multiplier. When called this button will permanently multiply the number of points
+// per click, by two for example.
 
 // condition pr que la valeur de prix multi et palier
 var prixMulti =
@@ -100,8 +101,9 @@ var numberClickAuto =
 
 var palierAuto =
   localStorage.getItem("palierAutoCookie") == null
-    ? 400
+    ? 500
     : localStorage.getItem("palierAutoCookie");
+
 var autoclick = 1;
 // écrit dans le html le resultat du nbre de click Auto
 wateringCansOwned.innerText = numberClickAuto;
@@ -124,18 +126,14 @@ document.getElementById("autoclickbtn").addEventListener("click", () => {
 
   localStorage.setItem("palierAutoCookie", palierAuto);
 
-  autoclick = 1;
-
-  function clikauto() {
-    numberClick = parseInt(numberClick) + parseInt(autoclick);
-    target.innerText = numberClick;
-  }
-
   var setInterval1 = setInterval(clikauto, 1000); // clique tte les 1 sec}
   btnAutoOff = 1;
   localStorage.setItem("btnAutoOffCookiee", btnAutoOff);
 });
 
+if (btnAutoOff == 1) {
+  setInterval1 = setInterval(clikauto, 1000);
+}
 // -------------------------BONUS------------------------------------------
 var bonus =
   localStorage.getItem("bonus") == null ? 1 : localStorage.getItem("bonus");
@@ -185,8 +183,7 @@ var setIntervalCheck = setInterval(() => {
 
   if (btnAutoOff == 1) {
     dissappear(autoClickbtn);
-    setInterval1 = setInterval(clikauto, 1000);
   }
-}, 1000);
+}, 200);
 
 // ----------------------------------------------------------------------------
