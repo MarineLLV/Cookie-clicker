@@ -1,8 +1,11 @@
 // --------------------------Variables -------------------------------------
 
-var target = document.getElementById("target");
+var target = document.getElementById("target1");
 var tree = document.getElementById("tree");
-var numberClick = parseInt(target.textContent);
+var numberClick =
+  localStorage.getItem("numberClickCookies") == null
+    ? 0
+    : localStorage.getItem("numberClickCookies");
 var test = false;
 var multiplicateur = document.getElementById("multiplicateur");
 var bees = document.getElementById("bees");
@@ -25,27 +28,15 @@ function appear() {
 //When you click the button, increase the variable storing the score by 1, then display the current score inside the label.
 //affichage de 0 au lieu de null
 
-numberClick = localStorage.getItem("numberClickCookies");
-target.innerHTML = `plant ${localStorage.getItem("numberClickCookies")} trees`;
-
-numberClick = localStorage.getItem("numberClickCookies");
-target.innerHTML = `plant ${localStorage.getItem("numberClickCookies")} trees`;
-
-if (numberClick === null) {
-  target.innerHTML = `plant 0 tree`;
-}
-
+target.innerText = numberClick;
 dissappear();
 
 //---------------------- COMPTEUR DE CLIQUE---------------------------------
 tree.addEventListener("click", () => {
-  numberClick++;
+  target.innerText = ++numberClick;
   localStorage.setItem("numberClickCookies", numberClick);
-  target.innerHTML = `plant ${localStorage.getItem(
-    "numberClickCookies"
-  )} trees`;
 
-  if (numberClick >= 100) {
+  if (numberClick >= 1000) {
     appear();
   } else {
     dissappear();
@@ -73,18 +64,13 @@ multiplicateur.addEventListener("click", () => {
   prix.innerText = prixMulti;
 
   if (test == false) {
-    numberClick = parseInt(numberClick) - 10;
+    numberClick = parseInt(numberClick) - 100;
     test = true;
-
-    // localStorage.setItem('multipliAutorisation',test);
   }
+  // localStorage.setItem('multipliAutorisation',test);
+
   numberClick = parseInt(numberClick) * 2;
-  target.innerHTML = `plant ${numberClick} trees`;
-  // actualisé et enregistré le numberClick dans le cookie
-  localStorage.setItem("numberClickCookies", numberClick);
-  target.innerHTML = `plant ${localStorage.getItem(
-    "numberClickCookies"
-  )} trees`;
+  target.innerText = numberClick;
 });
 
 //------------------------------------ AUTO CLIQUEUR------------------------------------------------------------
@@ -101,9 +87,9 @@ wateringCansOwned.innerText = numberClickAuto;
 
 document.getElementById("wateringCan").addEventListener("click", () => {
   // implémente numberClickAuto à chaque click
-  wateringCansOwned.innerText = numberClickAuto++;
+  wateringCansOwned.innerText = ++numberClickAuto;
   // crée un cookie numberAuto par rapport aux nombres de click
-  localStorage.getItem("numberAuto", numberClickAuto);
+  localStorage.setItem("numberAuto", numberClickAuto);
 
   var num = 0;
 
