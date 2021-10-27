@@ -241,7 +241,6 @@ button > img {
   }
 
   body {
-    background-color: green;
     display: flex;
     flex-direction: column;
     width: 100%;
