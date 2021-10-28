@@ -2,13 +2,141 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie-Clicker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="tree games">
+
+  <title>tree clicker</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <link href="./style.css" rel="stylesheet" type="text/css" />
 </head>
-htjtty
+
 <body>
+  <!--  -->
+  <div class="body">
+    <main id="forest">
+
+      <h1 id="target">Plant <span id="target1"></span> trees</h1>
+
+      <button type="button" id="tree"> <img
+          src="Assets/tree.png"
+          alt="tree">
+      </button>
+
+      <!-- <button type="button" id="tree"> <img
+        src="http://www.apevenements.com/wp-content/uploads/2020/12/23-tree-png-image-download-picture.png"
+        alt="tree">
+    </button> -->
+
+      <div id="leafs">
+        <div class="leaf">
+          <div><img src="img/leaves_autumn1.png" alt="autumn leave 1"></div>
+          <div><img src="img/leaves_autumn2.png" alt="autumn leave 2"></div>
+          <div><img src="img/leaves_autumn3.png" alt="autumn leave 3"></div>
+          <div><img src="img/leaves_autumn4.png" alt="autumn leave 4"></div>
+          <div><img src="img/leaves_autumn5.png" alt="autumn leave 5"></div>
+          <div><img src="img/leaves_autumn6.png" alt="autumn leave 6"></div>
+          <div><img src="img/leaves_autumn7.png" alt="autumn leave 7"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ***********************************TREE-ACTIONS********************************* -->
+    <section id="treeActions">
+      <h2>Let's upgrade our forest ! </h2>
+      <!-- **********************************MULTIPLY-BUTTON ****************************** -->
+      <!-- <div class="actions">
+      <button type="button" class="button" id="multiplicateur">
+        <div class="buttonImage">
+          <i class="fas fa-times" id="multiplier"></i>
+        </div>
+        <div id="multiplicateur" class="buttonTxt">
+          <div>
+            <h2>Multiply x 5 </h2>
+            <p class="hide">Use this element to multiply you clicking score by TwO !</p>
+            <div class="flexColumn">
+              <p id="prix">Price: <span>1</span></p>
+              <p>Multiply owned: <span id="multiplyOwned">0</span></p>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div> -->
+
+      <div class="actions">
+        <button type="button" class="button" id="multiplicateur">
+          <span class="buttonImage">
+            <i class="fas fa-times" id="multiplier"></i>
+          </span>
+          <span class="buttonTxt">
+            <span class="title">Multiply x 5 </span>
+            <span class="hide">Use this element to multiply you clicking score by TwO !</span>
+            <span class="flexColumn">
+              <span class="formatSpan">Price: <span id="prix">1</span> - Level: <span id="level"></span> - Nb owned: <span id="multiplyOwned">0</span></span>
+              <!-- <span class="formatSpan">Level: <span id="level"></span></span>
+              <span class="formatSpan">Multiply owned: <span id="multiplyOwned">0</span></span> -->
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <!-- *************************************** WATERING-BUTTON *********************************** -->
+
+      <div class="actions">
+        <button type="button" class="button" id="autoclickbtn">
+          <span class="buttonImage">
+            <i class="fas fa-faucet" id="tap"></i>
+          </span>
+          <span id="wateringCan" class="buttonTxt">
+            <span class="title">The Watering-Can</span>
+            <span class="hide">Use the watering-can to give them power and strenghness to the trees. They will grow !
+            </span>
+            <span class="flexColumn">
+              <span class="formatSpan">Price: <span id="price1">1</span> - Level: <span id="level1"></span> - Nb owned: <span id="wateringCansOwned">0</span></span>
+              <!-- <span class="formatSpan">Level: <span id="level1"></span></span>
+              <span class="formatSpan">Watering-Can owned: <span id="wateringCansOwned">0</span></span> -->
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <!-- ************************************** BEE-BUTTON ******************************************** -->
+
+      <div class="actions">
+        <button id="bees" type="button" class="button">
+          <span class="buttonImage">
+            <i class="fas fa-bug" id="bee"></i>
+          </span>
+          <span  class="buttonTxt">
+            <span class="title">Release the bees</span>
+            <span class="formatSpan"> <span id="compteAReb">30 </span> Seconds</span>
+            <span class="hide">The bees are one of the most important animals in the forest. They will pollinate the
+              plants
+              and extend the forest !</span>
+            <span class="flexColumn">
+              <span class="formatSpan">Price: <span>1</span> - Level: <span id="level2"></span> - Nb owned: <span id="beesOwned">0</span></span>
+              <!-- <span class="formatSpan">Level: <span id="level2"></span></span>
+              <span class="formatSpan">Bees owned: <span id="beesOwned">0</span></span> -->
+            </span>
+          </span>
+        </button>
+      </div>
+
+    </section>
+
+  </div>
+
+  <footer>
+
+    <p class="signature"> The website has been created by Boris, Francis, Lionel, Marine and Thomas <br>
+      This is our <a href="https://github.com/MarineLLV/Cookie-clicker" target="_blank" rel="noopener">repo</a></p>
+
+  </footer>
+
+
+  <script src="script.js"></script>
 
 </body>
 
