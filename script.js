@@ -17,7 +17,7 @@ var wateringCansOwned = document.getElementById("wateringCansOwned");
 var click =
   localStorage.getItem("clicks") == null ? 1 : localStorage.getItem("clicks");
 // val du multiplicateur
-var valMultipplcateur = document.getElementById("valMulti");
+var valMultipplcateur = document.getElementById("valmutiplicateur");
 var autoClickbtn = document.getElementById("autoclickbtn");
 
 // ----------------------------Fonction -------------------------------------
