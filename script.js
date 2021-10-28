@@ -17,12 +17,14 @@ var wateringCansOwned = document.getElementById("wateringCansOwned");
 var click =
   localStorage.getItem("clicks") == null ? 1 : localStorage.getItem("clicks");
 // val du multiplicateur
+
 var valMultipplcateur = document.getElementById("valmutiplicateur");
 var autoClickbtn = document.getElementById("autoclickbtn");
 //AFFICH  du bonus --------------
 var afficherpalierBonus = document.getElementById("level2");
 
 var afficherprixDuBonus =  document.getElementById("price2");
+
 
 // ----------------------------Fonction -------------------------------------
 
@@ -36,7 +38,9 @@ function appear(element) {
 
 dissappear(multiplicateur);
 dissappear(autoClickbtn);
+
 dissappear(bees);
+
 // ----------------------------------------------------------------------------
 //When you click the button, increase the variable storing the score by 1, then display the current score inside the label.
 //affichage de 0 au lieu de null
@@ -56,23 +60,32 @@ tree.addEventListener("click", () => {
 // per click, by two for example.
 
 // condition pr que la valeur de prix multi et palier
+
+var level = document.getElementById("level");
+
+
 var prixMulti =
   localStorage.getItem("prixMultiCookie") == null
     ? 20
     : localStorage.getItem("prixMultiCookie");
+
 var palier =
   localStorage.getItem("palierCookie") == null
     ? 100
     : localStorage.getItem("palierCookie");
+
 var numberMulti =
   localStorage.getItem("numberClickMulti") == null
     ? 0
     : localStorage.getItem("numberClickMulti");
+
+
 multiplyOwned.innerText = numberMulti;
 // affichage du prix de la mutliplication
-affichprixmulti.innerText = prixMulti;
-//affichage  de la valeur de multiplication ds le bouton
-valMultipplcateur.innerText = click;
+affichprixmulti.innerText = prixMulti * 2;
+// affiche le level du prochain palier
+level.innerText = palier;
+
 
 multiplicateur.addEventListener("click", () => {
   palier = palier * 2;
@@ -80,9 +93,11 @@ multiplicateur.addEventListener("click", () => {
   localStorage.setItem("prixMultiCookie", prixMulti);
   localStorage.setItem("palierCookie", palier);
   //afficher nouveau prix ds bouton
-  affichprixmulti.innerText = prixMulti;
-  //affichage  de la valeur de multiplication ds le bouton
-  valMultipplcateur.innerText = click;
+
+  affichprixmulti.innerText = prixMulti * 2;
+  // affiche le level du prochain palier
+  level.innerText = palier;
+
 
   multiplyOwned.innerText = ++numberMulti; // injection ds le html de la valeur de nombre de click sur multiplicateur
   localStorage.setItem("numberClickMulti", numberMulti); //// injection ds le cookie de la valeur de nombre de click sur multiplicateur
@@ -97,6 +112,15 @@ multiplicateur.addEventListener("click", () => {
 
 // variable nbre de click de l'auto + si null =0 sinon est égal au cookie auto
 
+var price1 = document.getElementById("price1");
+var level1 = document.getElementById("level1");
+// ------- Cookies de l AUTO CLIQUEUR ---------------------------
+var priceAuto =
+  localStorage.getItem("priceAutoCookie") == null
+    ? 250
+    : localStorage.getItem("priceAutoCookie");
+
+
 var numberClickAuto =
   localStorage.getItem("numberAuto") == null
     ? 0
@@ -106,6 +130,7 @@ var palierAuto =
   localStorage.getItem("palierAutoCookie") == null
     ? 500
     : localStorage.getItem("palierAutoCookie");
+
 
 var autoclick = 1;
 // écrit dans le html le resultat du nbre de click Auto
@@ -121,17 +146,36 @@ function clikauto() {
   target.innerText = numberClick;
 }
 
+
 document.getElementById("autoclickbtn").addEventListener("click", () => {
+
+var autoclick = 1;
+
+// écrit dans le html le resultat du nbre de click Auto
+wateringCansOwned.innerText = numberClickAuto;
+price1.innerText = priceAuto;
+level1.innerText = palierAuto;
+
+document.getElementById("autoclickbtn").addEventListener("click", () => {
+  localStorage.setItem("priceAutoCookie", "-");
+  price1.innerText = localStorage.getItem("priceAutoCookie");
+
   // implémente numberClickAuto à chaque click
   wateringCansOwned.innerText = ++numberClickAuto;
   // crée un cookie numberAuto par rapport aux nombres de click
   localStorage.setItem("numberAuto", numberClickAuto);
 
-  localStorage.setItem("palierAutoCookie", palierAuto);
 
-  var setInterval1 = setInterval(clikauto, 1000);
+  localStorage.setItem("palierAutoCookie", "-");
+  level1.innerText = localStorage.getItem("palierAutoCookie");
+
+  var setInterval1 = setInterval(clikauto, 1000); // clique tte les 1 sec}
   btnAutoOff = 1;
   localStorage.setItem("btnAutoOffCookiee", btnAutoOff);
+
+  numberClick = numberClick - 250;
+  target.innerText = numberClick;
+
 });
 
 if (btnAutoOff == 1) {
@@ -145,6 +189,7 @@ var compteAReb = document.getElementById("compteAReb");
 
 var numbee = 0;
 var timeleft = 30; // bonus dure 30seco
+
 
 // Declaration de variable  palierBonus et  si null egal 1000 sinon est égal au cookie auto
 
@@ -200,6 +245,7 @@ var utiliBonus =
     var bonus = localStorage.getItem("clicks") * 2;
 
     // TIMER DE LA PERLMISSION DU BONUS
+
     var downloadTimer = setInterval(function () {
       timeleft--;
 
@@ -219,6 +265,7 @@ var utiliBonus =
   });
 
 
+
 // --------------------------- SetInterval check disabled----------------------
 
 // le setinterval vérifie toutes les 100 mili la condition numerClick par rapport aux paliers et autorise affichage de multiplicateur
@@ -233,11 +280,13 @@ var setIntervalCheck = setInterval(() => {
     appear(autoClickbtn);
   }
 
+
   if (numberClick >= palierBonus){
     appear(bees);
 
   }else{ dissappear(bees);
   }
+
 
   if (btnAutoOff == 1) {
     dissappear(autoClickbtn);
@@ -246,5 +295,28 @@ var setIntervalCheck = setInterval(() => {
   localStorage.setItem("numberClickCookies", numberClick);
 }, 200);
 
-console.log("test");
+
+
 // ----------------------------------------------------------------------------
+
+// animation au click (+1)
+var co_x = 0
+document.getElementById("tree").addEventListener("click",function(e) {
+  co_x++;
+    let elem = document.createElement("div")
+    document.body.append(elem)
+
+    elem.setAttribute("id", "x" + co_x)
+    document.getElementById("x" + co_x).style.top = e.clientY + "px"
+    document.getElementById("x" + co_x).style.left = e.clientX + "px"
+    document.getElementById("x" + co_x).style.position = "absolute"
+    document.getElementById("x" + co_x).style.width = 60 + "px"
+    document.getElementById("x" + co_x).style.height = 60 + "px"
+    document.getElementById("x" + co_x).style.color = "white"
+    document.getElementById("x" + co_x).style.fontWeight = "bold"
+    document.getElementById("x" + co_x).style.animation= "GoUp 2s forwards linear";
+
+    elem.innerHTML = "+ " + parseInt(click)
+
+})
+
