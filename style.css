@@ -3,6 +3,7 @@
 * {
   margin: 0px;
   font-family: 'Indie Flower', cursive;
+  text-shadow: 0px 1px 1px rgb(214, 212, 212);
 }
 
 body {
@@ -18,6 +19,7 @@ button > img {
 #forest {
   background-image: url(./Assets/foret-soleil.jpg);
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 #leafs {
@@ -118,12 +120,12 @@ h2{
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: rgba(222, 184, 135, 0.6);
+  background-color: rgba(156, 231, 118, 0.541);
   border: none;
   border-radius: 10px;
   z-index: 100;
 }
-
+/* 222, 184, 135, 0.6 */
 .buttonImage {
   padding-left: 5px;
   width: 20%;
@@ -167,6 +169,7 @@ h2{
 .formatSpan{
   display: block;
   font-size: 1rem;
+
 }
 
 .hide{
@@ -174,7 +177,9 @@ h2{
   font-size: 1rem;
 }
 
-
+:disabled{
+ color: rgba(133, 21, 7, 0.863);
+}
 
 
 /* FEUILLE  */
