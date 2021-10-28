@@ -53,12 +53,16 @@ button > img {
 
 #target {
   padding: 2vh;
-  color: black;
+  color: white;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 25px;
-  border-radius: 15px;
-  background-color: rgba(222, 184, 135, 0.6);
+  /* border-radius: 15px; */
+  /* background-color: rgba(222, 184, 135, 0.6); */
+  background-image: url("Assets/bois.png");
+  background-repeat: no-repeat;
+  background-size: 80% 100%;
+  background-position: center;
 }
 
 #tree:hover {
