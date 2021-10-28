@@ -53,12 +53,16 @@ button > img {
 
 #target {
   padding: 2vh;
-  color: black;
+  color: white;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 25px;
-  border-radius: 15px;
-  background-color: rgba(222, 184, 135, 0.6);
+  /* border-radius: 15px; */
+  /* background-color: rgba(222, 184, 135, 0.6); */
+  background-image: url("Assets/bois.png");
+  background-repeat: no-repeat;
+  background-size: 80% 100%;
+  background-position: center;
 }
 
 #tree:hover {
@@ -78,7 +82,7 @@ button > img {
   }
 }
 
-.signature {
+.signature{
   text-align: center;
   font-weight: 600;
   color: black;
@@ -86,16 +90,16 @@ button > img {
 
 a {
   text-decoration: none;
-  color: #4d7069;
+  color: brown;
 }
 
-a:hover {
-  color: brown;
+a:hover{
+  color:#4D7069;
 }
 
 /* ----------------- boutons actions ------------------ */
 
-h2 {
+h2{
   text-align: center;
   color: white;
   font-weight: 800;
@@ -160,15 +164,18 @@ h2 {
   font-weight: 800;
 }
 
-.formatSpan {
+.formatSpan{
   display: block;
   font-size: 1rem;
 }
 
-.hide {
+.hide{
   display: block;
   font-size: 1rem;
 }
+
+
+
 
 /* FEUILLE  */
 
@@ -178,7 +185,7 @@ h2 {
   height: 80%;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index:-1;
 }
 .leaf div {
   position: absolute;
@@ -249,6 +256,8 @@ h2 {
   transform: rotateX(180deg);
 }
 
+/* ---------------------- plus 1 quand on clique sur l'arbre ------- */
+
 @keyframes GoUp {
   0% {
       opacity: 1;
@@ -314,13 +323,12 @@ h2 {
   .buttonTxt {
     text-align: center;
     padding: 0px;
-    
   }
 
-  /*.buttonTxt > div {
+  /* .buttonTxt > div{
     display: flex;
-    justify-content: space-evenly;*/
-  }
+    justify-content: space-evenly;
+  } */
 
   .hide {
     display: none;
@@ -341,8 +349,8 @@ h2 {
     align-self: center;
   }
 
-  .formatSpan {
-    font-size: 0.7rem;
+  .formatSpan{
+    font-size: 0.7rem
   }
 
   .leaf {
@@ -353,15 +361,15 @@ h2 {
     display: none;
   }
 
-  footer {
+  footer{
     background-color: #f6e1c7;
     padding-top: 1%;
   }
 
-  .signature {
+  .signature{
     font-size: 0.6rem;
   }
-
+}
 /*----------------------- PHONE ---END---------******/
 /*----------------------- TABLET ------------******/
 @media (min-width: 768px) {
@@ -378,7 +386,7 @@ h2 {
     padding-top: 3%;
     height: 50%;
   }
-
+  
   #target {
     width: 40%;
     margin: auto;
@@ -402,19 +410,19 @@ h2 {
 
   .actions {
     width: 85%;
-    height: 10%;
+    height : 10%;
     margin-bottom: 10px;
   }
 
-  .actions:last-child {
-    margin-bottom: 0px;
+  .actions:last-child{
+    margin-bottom: 0px ;
   }
 
-  .buttonTxt {
-    padding: 2%;
-    display: flex;
+  .buttonTxt{
+ /*    display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center; */
+    padding: 2%;
   }
 
   .title {
@@ -423,24 +431,26 @@ h2 {
     text-transform: uppercase;
   }
 
-  .formatSpan,
-  .hide {
+  .formatSpan, .hide {
     font-weight: bold;
     font-size: 0.9rem;
   }
 
-  footer {
+  footer{
     background-color: #f6e1c7;
     padding-top: 1%;
   }
 
-  .signature {
+  .signature{
     font-size: 0.7rem;
   }
+
 }
 /*----------------------- LARGE SCREEN -------------------------******/
 
+
 @media (min-width: 992px) {
+
   * {
     margin: 0px;
     padding: 0px;
@@ -463,7 +473,7 @@ h2 {
     height: 100%;
   }
 
-  main {
+  main{
     width: 55%;
     height: 75%;
   }
@@ -487,8 +497,8 @@ h2 {
     width: 85%;
   }
 
-  .actions:last-child {
-    margin-bottom: 0px;
+  .actions:last-child{
+    margin-bottom: 0px ;
   }
 
   .title {
@@ -497,21 +507,22 @@ h2 {
     text-transform: uppercase;
   }
 
-  .formatSpan,
-  .title {
-    font-weight: bold;
+  .formatSpan, .title {
+    font-weight:bold;
     font-size: 0.95rem;
   }
 
-
-  footer {
+  footer{
     padding-top: 3%;
   }
 
-  .signature {
+  .signature{
     font-size: 0.7rem;
   }
 }
+
+
+
 
 /*--------------------------------------------- EXTRA LARGE SCREEN -----------------------------******/
 
@@ -530,11 +541,12 @@ h2 {
     background-image: linear-gradient(#f4e1c9, #f6e1c7);
     padding-top: 50px;
     padding-bottom: 50px;
+    
 
     height: 100%;
   }
 
-  main {
+  main{
     width: 50%;
     height: 75%;
   }
@@ -558,8 +570,8 @@ h2 {
     width: 85%;
   }
 
-  .actions:last-child {
-    margin-bottom: 0px;
+  .actions:last-child{
+    margin-bottom: 0px ;
   }
 
   .title {
@@ -568,17 +580,16 @@ h2 {
     text-transform: uppercase;
   }
 
-  .formatSpan,
-  .hide {
-    font-weight: bold;
+  .formatSpan, .hide {
+    font-weight:bold;
     font-size: 1rem;
   }
 
-  footer {
+  footer{
     padding-top: 3%;
   }
 
-  .signature {
+  .signature{
     font-size: 0.8rem;
   }
 }

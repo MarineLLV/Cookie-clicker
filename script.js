@@ -19,6 +19,10 @@ var click =
 // val du multiplicateur
 var autoClickbtn = document.getElementById("autoclickbtn");
 
+var afficherpalierBonus = document.getElementById("level2");
+
+var afficherprixDuBonus = document.getElementById("price2");
+
 // ----------------------------Fonction -------------------------------------
 
 function dissappear(element) {
@@ -162,29 +166,73 @@ var compteAReb = document.getElementById("compteAReb");
 var numbee = 0;
 var timeleft = 30; // bonus dure 30seco
 
-if (numberClick) {
-  appear(compteAReb); // on doit encore chjoisir condition pour avoir ce Bonus
+// Declaration de variable  palierBonus et  si null egal 1000 sinon est égal au cookie auto
 
-  bees.addEventListener("click", function () {
-    //  nombre de clique fois 2, 200%
-    var bonus = localStorage.getItem("clicks") * 2;
+var palierBonus =
+  localStorage.getItem("palierBonusCookies") == null
+    ? 1000
+    : localStorage.getItem("palierBonusCookies");
 
-    var downloadTimer = setInterval(function () {
-      timeleft--;
+var prixBonus =
+  localStorage.getItem("prixBonusCookies") == null
+    ? 500
+    : localStorage.getItem("prixBonusCookies");
 
-      compteAReb.textContent = timeleft;
-      click = bonus;
-      target.innerText = numberClick;
-      if (timeleft <= 0) {
-        click = localStorage.getItem("clicks") / 2;
-        console.log(click);
+var utiliBonus =
+  localStorage.getItem("utilisationBonusCookies") == null
+    ? 0
+    : localStorage.getItem("utilisationBonusCookies");
 
-        clearInterval(downloadTimer);
-        timeleft = 30;
-      } // timer reviens a 30
-    }, 1000);
-  });
-}
+afficherpalierBonus.innerText = palierBonus;
+afficherprixDuBonus.innerText = prixBonus;
+
+// on doit encore chjoisir condition pour avoir ce Bonus
+
+// apparition du bouton
+
+bees.addEventListener("click", function () {
+  // CREATION DES COOKIES DU NOUVEAU PRIX PALIER ET PRIX DU BONUS-------------------
+  // on retire le prix du bonus
+
+  // INCREMENTATION DU PRIX PALIER ET PRIX DU BONUS-------------------
+  numberClick = parseInt(numberClick) - parseInt(prixBonus);
+  target.innerText = numberClick;
+
+  palierBonus = parseInt(palierBonus) * 2;
+  prixBonus = parseInt(prixBonus) * 2;
+
+  localStorage.setItem("prixBonusCookies", prixBonus);
+  localStorage.setItem("palierBonusCookies", palierBonus);
+
+  afficherpalierBonus.innerText = palierBonus;
+  afficherprixDuBonus.innerText = prixBonus;
+  // NOMBRE DE FOIS OU LE BOUTON BONUS A ETE UTILISER
+  // creation et incrementation utilisation
+  var utiliBonus;
+
+  beesOwned.innerText = ++utiliBonus; // injection ds le html de la valeur de nombre de click sur multiplicateur
+  localStorage.setItem("utilisationBonusCookies", utiliBonus);
+
+  //  nombre de clique fois 2, 200%
+  var bonus = localStorage.getItem("clicks") * 2;
+
+  // TIMER DE LA PERLMISSION DU BONUS
+
+  var downloadTimer = setInterval(function () {
+    timeleft--;
+
+    compteAReb.textContent = timeleft;
+    click = bonus;
+    target.innerText = numberClick;
+    if (timeleft <= 0) {
+      click = localStorage.getItem("clicks") / 2;
+      console.log(click);
+
+      clearInterval(downloadTimer);
+      timeleft = 30;
+    } // timer reviens a 30
+  }, 1000);
+});
 
 // --------------------------- SetInterval check disabled----------------------
 
@@ -200,6 +248,12 @@ var setIntervalCheck = setInterval(() => {
     appear(autoClickbtn);
   }
 
+  if (numberClick >= palierBonus) {
+    appear(bees);
+  } else {
+    dissappear(bees);
+  }
+
   if (btnAutoOff == 1) {
     dissappear(autoClickbtn);
   }
@@ -208,7 +262,6 @@ var setIntervalCheck = setInterval(() => {
 }, 200);
 
 // ----------------------------------------------------------------------------
-
 // animation au click (+1)
 var co_x = 0;
 document.getElementById("tree").addEventListener("click", function (e) {
