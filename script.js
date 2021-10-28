@@ -17,7 +17,7 @@ var wateringCansOwned = document.getElementById("wateringCansOwned");
 var click =
   localStorage.getItem("clicks") == null ? 1 : localStorage.getItem("clicks");
 // val du multiplicateur
-var valMultipplcateur = document.getElementById("valMulti");
+var valMultipplcateur = document.getElementById("valmutiplicateur");
 var autoClickbtn = document.getElementById("autoclickbtn");
 
 // ----------------------------Fonction -------------------------------------
@@ -68,22 +68,21 @@ multiplyOwned.innerText = numberMulti;
 // affichage du prix de la mutliplication
 affichprixmulti.innerText = prixMulti;
 //affichage  de la valeur de multiplication ds le bouton
-valMultipplcateur.innerText = localStorage.getItem("clicks");
+valMultipplcateur.innerText = click;
 
 multiplicateur.addEventListener("click", () => {
   palier = palier * 2;
   prixMulti = prixMulti * 2;
   localStorage.setItem("prixMultiCookie", prixMulti);
-  //afficher nouveau prix ds bouton
-  affichprixmulti.innerText = localStorage.setItem(
-    "prixMultiCookie",
-    prixMulti
-  );
-
   localStorage.setItem("palierCookie", palier);
+  //afficher nouveau prix ds bouton
+  affichprixmulti.innerText = prixMulti;
+  //affichage  de la valeur de multiplication ds le bouton
+  valMultipplcateur.innerText = click;
 
   multiplyOwned.innerText = ++numberMulti; // injection ds le html de la valeur de nombre de click sur multiplicateur
   localStorage.setItem("numberClickMulti", numberMulti); //// injection ds le cookie de la valeur de nombre de click sur multiplicateur
+
   click = localStorage.getItem("clicks") * 2;
   numberClick = numberClick - prixMulti;
   target.innerText = numberClick;
@@ -188,4 +187,5 @@ var setIntervalCheck = setInterval(() => {
   localStorage.setItem("numberClickCookies", numberClick);
 }, 200);
 
+console.log("test");
 // ----------------------------------------------------------------------------
