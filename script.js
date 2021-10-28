@@ -17,14 +17,11 @@ var wateringCansOwned = document.getElementById("wateringCansOwned");
 var click =
   localStorage.getItem("clicks") == null ? 1 : localStorage.getItem("clicks");
 // val du multiplicateur
-
-var valMultipplcateur = document.getElementById("valmutiplicateur");
 var autoClickbtn = document.getElementById("autoclickbtn");
-//AFFICH  du bonus --------------
+
 var afficherpalierBonus = document.getElementById("level2");
 
-var afficherprixDuBonus =  document.getElementById("price2");
-
+var afficherprixDuBonus = document.getElementById("price2");
 
 // ----------------------------Fonction -------------------------------------
 
@@ -38,8 +35,6 @@ function appear(element) {
 
 dissappear(multiplicateur);
 dissappear(autoClickbtn);
-
-dissappear(bees);
 
 // ----------------------------------------------------------------------------
 //When you click the button, increase the variable storing the score by 1, then display the current score inside the label.
@@ -60,9 +55,7 @@ tree.addEventListener("click", () => {
 // per click, by two for example.
 
 // condition pr que la valeur de prix multi et palier
-
 var level = document.getElementById("level");
-
 
 var prixMulti =
   localStorage.getItem("prixMultiCookie") == null
@@ -79,13 +72,11 @@ var numberMulti =
     ? 0
     : localStorage.getItem("numberClickMulti");
 
-
 multiplyOwned.innerText = numberMulti;
 // affichage du prix de la mutliplication
 affichprixmulti.innerText = prixMulti * 2;
 // affiche le level du prochain palier
 level.innerText = palier;
-
 
 multiplicateur.addEventListener("click", () => {
   palier = palier * 2;
@@ -93,11 +84,9 @@ multiplicateur.addEventListener("click", () => {
   localStorage.setItem("prixMultiCookie", prixMulti);
   localStorage.setItem("palierCookie", palier);
   //afficher nouveau prix ds bouton
-
   affichprixmulti.innerText = prixMulti * 2;
   // affiche le level du prochain palier
   level.innerText = palier;
-
 
   multiplyOwned.innerText = ++numberMulti; // injection ds le html de la valeur de nombre de click sur multiplicateur
   localStorage.setItem("numberClickMulti", numberMulti); //// injection ds le cookie de la valeur de nombre de click sur multiplicateur
@@ -111,7 +100,6 @@ multiplicateur.addEventListener("click", () => {
 // clique automatique tous les  secondes  de 10 cliques
 
 // variable nbre de click de l'auto + si null =0 sinon est égal au cookie auto
-
 var price1 = document.getElementById("price1");
 var level1 = document.getElementById("level1");
 // ------- Cookies de l AUTO CLIQUEUR ---------------------------
@@ -119,7 +107,6 @@ var priceAuto =
   localStorage.getItem("priceAutoCookie") == null
     ? 250
     : localStorage.getItem("priceAutoCookie");
-
 
 var numberClickAuto =
   localStorage.getItem("numberAuto") == null
@@ -131,11 +118,6 @@ var palierAuto =
     ? 500
     : localStorage.getItem("palierAutoCookie");
 
-
-var autoclick = 1;
-// écrit dans le html le resultat du nbre de click Auto
-wateringCansOwned.innerText = numberClickAuto;
-
 var btnAutoOff =
   localStorage.getItem("btnAutoOffCookiee") == null
     ? 0
@@ -145,9 +127,6 @@ function clikauto() {
   numberClick = parseInt(numberClick) + parseInt(autoclick);
   target.innerText = numberClick;
 }
-
-
-document.getElementById("autoclickbtn").addEventListener("click", () => {
 
 var autoclick = 1;
 
@@ -159,12 +138,10 @@ level1.innerText = palierAuto;
 document.getElementById("autoclickbtn").addEventListener("click", () => {
   localStorage.setItem("priceAutoCookie", "-");
   price1.innerText = localStorage.getItem("priceAutoCookie");
-
   // implémente numberClickAuto à chaque click
   wateringCansOwned.innerText = ++numberClickAuto;
   // crée un cookie numberAuto par rapport aux nombres de click
   localStorage.setItem("numberAuto", numberClickAuto);
-
 
   localStorage.setItem("palierAutoCookie", "-");
   level1.innerText = localStorage.getItem("palierAutoCookie");
@@ -175,7 +152,6 @@ document.getElementById("autoclickbtn").addEventListener("click", () => {
 
   numberClick = numberClick - 250;
   target.innerText = numberClick;
-
 });
 
 if (btnAutoOff == 1) {
@@ -189,7 +165,6 @@ var compteAReb = document.getElementById("compteAReb");
 
 var numbee = 0;
 var timeleft = 30; // bonus dure 30seco
-
 
 // Declaration de variable  palierBonus et  si null egal 1000 sinon est égal au cookie auto
 
@@ -208,63 +183,56 @@ var utiliBonus =
     ? 0
     : localStorage.getItem("utilisationBonusCookies");
 
-    afficherpalierBonus.innerText = palierBonus;
-    afficherprixDuBonus.innerText = prixBonus;
+afficherpalierBonus.innerText = palierBonus;
+afficherprixDuBonus.innerText = prixBonus;
 
+// on doit encore chjoisir condition pour avoir ce Bonus
 
-  // on doit encore chjoisir condition pour avoir ce Bonus
+// apparition du bouton
 
-  
-  // apparition du bouton
-  
+bees.addEventListener("click", function () {
+  // CREATION DES COOKIES DU NOUVEAU PRIX PALIER ET PRIX DU BONUS-------------------
+  // on retire le prix du bonus
 
-  bees.addEventListener("click", function () {
-    // CREATION DES COOKIES DU NOUVEAU PRIX PALIER ET PRIX DU BONUS-------------------
-    // on retire le prix du bonus
-  
   // INCREMENTATION DU PRIX PALIER ET PRIX DU BONUS-------------------
   numberClick = parseInt(numberClick) - parseInt(prixBonus);
   target.innerText = numberClick;
 
   palierBonus = parseInt(palierBonus) * 2;
   prixBonus = parseInt(prixBonus) * 2;
-    
-    localStorage.setItem("prixBonusCookies", prixBonus);
-    localStorage.setItem("palierBonusCookies", palierBonus);
 
-    afficherpalierBonus.innerText = palierBonus;
-    afficherprixDuBonus.innerText = prixBonus;
-    // NOMBRE DE FOIS OU LE BOUTON BONUS A ETE UTILISER
-    // creation et incrementation utilisation
-    var utiliBonus;
+  localStorage.setItem("prixBonusCookies", prixBonus);
+  localStorage.setItem("palierBonusCookies", palierBonus);
 
-    beesOwned.innerText = ++utiliBonus; // injection ds le html de la valeur de nombre de click sur multiplicateur
-    localStorage.setItem("utilisationBonusCookies", utiliBonus);
+  afficherpalierBonus.innerText = palierBonus;
+  afficherprixDuBonus.innerText = prixBonus;
+  // NOMBRE DE FOIS OU LE BOUTON BONUS A ETE UTILISER
+  // creation et incrementation utilisation
+  var utiliBonus;
 
-    //  nombre de clique fois 2, 200%
-    var bonus = localStorage.getItem("clicks") * 2;
+  beesOwned.innerText = ++utiliBonus; // injection ds le html de la valeur de nombre de click sur multiplicateur
+  localStorage.setItem("utilisationBonusCookies", utiliBonus);
 
-    // TIMER DE LA PERLMISSION DU BONUS
+  //  nombre de clique fois 2, 200%
+  var bonus = localStorage.getItem("clicks") * 2;
 
-    var downloadTimer = setInterval(function () {
-      timeleft--;
+  // TIMER DE LA PERLMISSION DU BONUS
 
-      compteAReb.textContent = timeleft;
-      click = bonus;
-      target.innerText = numberClick;
-      if (timeleft <= 0) {
-        click = localStorage.getItem("clicks") / 2;
-        console.log(click);
+  var downloadTimer = setInterval(function () {
+    timeleft--;
 
-        clearInterval(downloadTimer);
-        timeleft = 30;
-      } // timer reviens a 30
-    }, 1000);
+    compteAReb.textContent = timeleft;
+    click = bonus;
+    target.innerText = numberClick;
+    if (timeleft <= 0) {
+      click = localStorage.getItem("clicks") / 2;
+      console.log(click);
 
-  
-  });
-
-
+      clearInterval(downloadTimer);
+      timeleft = 30;
+    } // timer reviens a 30
+  }, 1000);
+});
 
 // --------------------------- SetInterval check disabled----------------------
 
@@ -280,13 +248,11 @@ var setIntervalCheck = setInterval(() => {
     appear(autoClickbtn);
   }
 
-
-  if (numberClick >= palierBonus){
+  if (numberClick >= palierBonus) {
     appear(bees);
-
-  }else{ dissappear(bees);
+  } else {
+    dissappear(bees);
   }
-
 
   if (btnAutoOff == 1) {
     dissappear(autoClickbtn);
@@ -295,28 +261,24 @@ var setIntervalCheck = setInterval(() => {
   localStorage.setItem("numberClickCookies", numberClick);
 }, 200);
 
-
-
 // ----------------------------------------------------------------------------
-
 // animation au click (+1)
-var co_x = 0
-document.getElementById("tree").addEventListener("click",function(e) {
+var co_x = 0;
+document.getElementById("tree").addEventListener("click", function (e) {
   co_x++;
-    let elem = document.createElement("div")
-    document.body.append(elem)
+  let elem = document.createElement("div");
+  document.body.append(elem);
 
-    elem.setAttribute("id", "x" + co_x)
-    document.getElementById("x" + co_x).style.top = e.clientY + "px"
-    document.getElementById("x" + co_x).style.left = e.clientX + "px"
-    document.getElementById("x" + co_x).style.position = "absolute"
-    document.getElementById("x" + co_x).style.width = 60 + "px"
-    document.getElementById("x" + co_x).style.height = 60 + "px"
-    document.getElementById("x" + co_x).style.color = "white"
-    document.getElementById("x" + co_x).style.fontWeight = "bold"
-    document.getElementById("x" + co_x).style.animation= "GoUp 2s forwards linear";
+  elem.setAttribute("id", "x" + co_x);
+  document.getElementById("x" + co_x).style.top = e.clientY + "px";
+  document.getElementById("x" + co_x).style.left = e.clientX + "px";
+  document.getElementById("x" + co_x).style.position = "absolute";
+  document.getElementById("x" + co_x).style.width = 60 + "px";
+  document.getElementById("x" + co_x).style.height = 60 + "px";
+  document.getElementById("x" + co_x).style.color = "white";
+  document.getElementById("x" + co_x).style.fontWeight = "bold";
+  document.getElementById("x" + co_x).style.animation =
+    "GoUp 2s forwards linear";
 
-    elem.innerHTML = "+ " + parseInt(click)
-
-})
-
+  elem.innerHTML = "+ " + parseInt(click);
+});
