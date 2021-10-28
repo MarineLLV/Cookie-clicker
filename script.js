@@ -210,22 +210,22 @@ var setIntervalCheck = setInterval(() => {
 // ----------------------------------------------------------------------------
 
 // animation au click (+1)
-var co_x = 0
-document.getElementById("tree").addEventListener("click",function(e) {
+var co_x = 0;
+document.getElementById("tree").addEventListener("click", function (e) {
   co_x++;
-    let elem = document.createElement("div")
-    document.body.append(elem)
+  let elem = document.createElement("div");
+  document.body.append(elem);
 
-    elem.setAttribute("id", "x" + co_x)
-    document.getElementById("x" + co_x).style.top = e.clientY + "px"
-    document.getElementById("x" + co_x).style.left = e.clientX + "px"
-    document.getElementById("x" + co_x).style.position = "absolute"
-    document.getElementById("x" + co_x).style.width = 60 + "px"
-    document.getElementById("x" + co_x).style.height = 60 + "px"
-    document.getElementById("x" + co_x).style.color = "white"
-    document.getElementById("x" + co_x).style.fontWeight = "bold"
-    document.getElementById("x" + co_x).style.animation= "GoUp 2s forwards linear";
+  elem.setAttribute("id", "x" + co_x);
+  document.getElementById("x" + co_x).style.top = e.clientY + "px";
+  document.getElementById("x" + co_x).style.left = e.clientX + "px";
+  document.getElementById("x" + co_x).style.position = "absolute";
+  document.getElementById("x" + co_x).style.width = 60 + "px";
+  document.getElementById("x" + co_x).style.height = 60 + "px";
+  document.getElementById("x" + co_x).style.color = "white";
+  document.getElementById("x" + co_x).style.fontWeight = "bold";
+  document.getElementById("x" + co_x).style.animation =
+    "GoUp 2s forwards linear";
 
-    elem.innerHTML = "+ " + parseInt(click)
-
-})
+  elem.innerHTML = "+ " + parseInt(click);
+});
