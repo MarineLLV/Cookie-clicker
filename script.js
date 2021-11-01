@@ -178,11 +178,12 @@ var prixBonus =
     ? 500
     : localStorage.getItem("prixBonusCookies");
 
-var utiliBonus =
-  localStorage.getItem("utilisationBonusCookies") == null
+var numberBonus =
+  localStorage.getItem("numBonusCookies") == null
     ? 0
-    : localStorage.getItem("utilisationBonusCookies");
+    : localStorage.getItem("numBonusCookies");
 
+beesOwned.innerText = numberBonus;
 afficherpalierBonus.innerText = palierBonus;
 afficherprixDuBonus.innerText = prixBonus;
 
@@ -208,10 +209,9 @@ bees.addEventListener("click", function () {
   afficherprixDuBonus.innerText = prixBonus;
   // NOMBRE DE FOIS OU LE BOUTON BONUS A ETE UTILISER
   // creation et incrementation utilisation
-  var utiliBonus;
 
-  beesOwned.innerText = ++utiliBonus; // injection ds le html de la valeur de nombre de click sur multiplicateur
-  localStorage.setItem("utilisationBonusCookies", utiliBonus);
+  beesOwned.innerText = ++numberBonus; // injection ds le html de la valeur de nombre de click sur multiplicateur
+  localStorage.setItem("numBonusCookies", numberBonus);
 
   //  nombre de clique fois 2, 200%
   var bonus = localStorage.getItem("clicks") * 2;
@@ -226,7 +226,6 @@ bees.addEventListener("click", function () {
     target.innerText = numberClick;
     if (timeleft <= 0) {
       click = localStorage.getItem("clicks") / 2;
-      console.log(click);
 
       clearInterval(downloadTimer);
       timeleft = 30;
@@ -263,22 +262,35 @@ var setIntervalCheck = setInterval(() => {
 
 // ----------------------------------------------------------------------------
 // animation au click (+1)
-var co_x = 0;
-document.getElementById("tree").addEventListener("click", function (e) {
-  co_x++;
-  let elem = document.createElement("div");
-  document.body.append(elem);
 
-  elem.setAttribute("id", "x" + co_x);
-  document.getElementById("x" + co_x).style.top = e.clientY + "px";
-  document.getElementById("x" + co_x).style.left = e.clientX + "px";
-  document.getElementById("x" + co_x).style.position = "absolute";
-  document.getElementById("x" + co_x).style.width = 60 + "px";
-  document.getElementById("x" + co_x).style.height = 60 + "px";
-  document.getElementById("x" + co_x).style.color = "white";
-  document.getElementById("x" + co_x).style.fontWeight = "bold";
-  document.getElementById("x" + co_x).style.animation =
-    "GoUp 2s forwards linear";
+if (window.matchMedia("(min-width: 768px)").matches) {
+  var co_x = 0;
+  document.getElementById("tree").addEventListener("click", function (e) {
+    co_x++;
+    let elem = document.createElement("div");
+    document.body.append(elem);
 
-  elem.innerHTML = "+ " + parseInt(click);
+    elem.setAttribute("id", "x" + co_x);
+    document.getElementById("x" + co_x).style.top = e.clientY + "px";
+    document.getElementById("x" + co_x).style.left = e.clientX + "px";
+    document.getElementById("x" + co_x).style.position = "absolute";
+    document.getElementById("x" + co_x).style.width = 60 + "px";
+    document.getElementById("x" + co_x).style.height = 60 + "px";
+    document.getElementById("x" + co_x).style.color = "white";
+    document.getElementById("x" + co_x).style.fontWeight = "bold";
+    document.getElementById("x" + co_x).style.pointerEvents = "none";
+    document.getElementById("x" + co_x).style.animation =
+      "GoUp 2s forwards linear";
+
+    elem.innerHTML = "+ " + parseInt(click);
+  });
+}
+
+// ---------------------------------------- Reset button ----------------------------------------------------------
+
+var reset = document.getElementById("reset");
+reset.addEventListener("click", () => {
+  clearInterval("setIntervalCheck");
+  localStorage.clear();
+  window.location.reload();
 });
