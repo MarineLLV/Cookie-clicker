@@ -14,6 +14,13 @@ body {
 button > img {
   width: 100%;
   height: auto;
+   /* enlève la sélection quand on drag and drop (selection bleu) */
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
 }
 
 #forest {
@@ -34,6 +41,8 @@ button > img {
   flex-direction: column;
   align-items: center;
   z-index: 500;
+  /* permet de cliquer par dessus l'élément */
+  pointer-events: none;
 }
 
 #treeActions {
@@ -51,6 +60,13 @@ button > img {
   width: 100%;
   height: auto;
   z-index: 1000;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
 }
 
 #target {
@@ -178,9 +194,49 @@ h2{
 }
 
 :disabled{
- color: rgba(133, 21, 7, 0.863);
+ color:black;
+ background-color: #a2b29fc4;
 }
 
+#reset{
+    display: flex;           
+    justify-content: center;
+    align-items: center;
+    font-family: Arial,sans-serif;
+     font-size: 1.2em;
+     font-weight: bold;
+     width: 70px;
+     height: 25px;
+     text-align: center;
+     color: #000;
+     background: linear-gradient( #ccece8,#3d665e);
+     border-radius: 7px/6px;
+     text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
+    position: relative;
+    left: calc(25%);
+    cursor: pointer;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+#reset:hover{
+  color: #222;
+  background: #ccece8;
+  background: linear-gradient( #ccece8, #4b978d);
+}
+
+#reset:active{
+  color: #000;
+  background: #5e8f85;
+  background: linear-gradient( #ccece8, #3d665e);
+  /* box-shadow: 1px 1px 10px black inset, 
+              0 1px 0 rgba( 255, 255, 255, 0.4); */
+}
 
 /* FEUILLE  */
 
@@ -190,12 +246,21 @@ h2{
   height: 80%;
   top: 0;
   left: 0;
-  z-index:-1;
+  z-index:500;
+  /* permet de cliquer par dessus l'élement */
+  pointer-events: none;
+   /* enlève la sélection quand on drag and drop (selection bleu) */
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
 }
 .leaf div {
   position: absolute;
   display: block;
-  z-index: 100;
+  z-index: 500;
 }
 .leaf div:nth-child(1) {
   left: 20%;
@@ -287,9 +352,9 @@ h2{
     width: 100%;
     height: 100%;
   }
-  #target {
+  /* #target {
     margin-top: 2vh;
-  }
+  } */
   #tree {
     margin-top: 5vh;
   }
@@ -318,6 +383,11 @@ h2{
     min-height: 35vh;
     padding-left: 2vw;
     padding-right: 2vw;
+  }
+
+  #reset{
+    position: relative;
+    left: calc(40%);
   }
   .actions {
     width: 100%;
@@ -405,6 +475,11 @@ h2{
 
   #forest {
     background-image: url(./Assets/foret-soleil-mobile.jpg);
+  }
+
+  #reset{
+    position: relative;
+    left: calc(40%);
   }
 
   #treeActions {
@@ -570,7 +645,10 @@ h2{
     padding-bottom: 20px;
     border-radius: 5px;
   }
-
+  #reset{
+    position: relative;
+    left: calc(25%);
+  }
   .actions {
     width: 85%;
   }
